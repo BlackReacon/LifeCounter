@@ -1,23 +1,31 @@
-let life1 = 20;
-let life2 = 20;
-let inputPlayer1;
-let playerName1;
-let inputPlayer2;
-let playerName2;
+let input = ["inputPlayer1", "inputPlayer2"];
 
-// let arrLifePlayer = [playerName, playerLife];
+let arrInfoPlayer = {
+  "playerInfo": [
+    {
+      "playerName": "",
+      "playerLife": 20,
+    },
+    {
+      "playerName": "",
+      "playerLife": 20,
+    },
+  ],
+};
+
+
 
 window.addEventListener("load", function () {
   if (this.localStorage.getItem("playerName1") == undefined) {
-    playerName1 = "";
+    arrInfoPlayer.playerInfo[0].playerName = "";
   } else {
-    playerName1 = this.localStorage.getItem("playerName1");
+    arrInfoPlayer.playerInfo[0].playerName = this.localStorage.getItem("playerName1");
   }
 
   if (this.localStorage.getItem("playerName2") == undefined) {
-    playerName2 = "";
+    arrInfoPlayer.playerInfo[1].playerName = "";
   } else {
-    playerName2 = this.localStorage.getItem("playerName2");
+    arrInfoPlayer.playerInfo[1].playerName = this.localStorage.getItem("playerName2");
   }
 
   generateHtml();
@@ -27,19 +35,19 @@ function generateHtml() {
   document.querySelector("body").innerHTML = ` 
     <h1>Multi Life Counter</h1>
         <div class="player reverse">
-            <input type="text" id="player1" placeholder="Player" value="${playerName1}">
+            <input type="text" id="player1" placeholder="Player" value="${arrInfoPlayer.playerInfo[0].playerName}">
             <div class="life">
                 <button id="p1m" class="minus">-</button>
-                <p>${life1}</p>
+                <p>${arrInfoPlayer.playerInfo[0].playerLife}</p>
                 <button id="p1p" class="plus">+</button>
             </div>
         </div>
         <button id="reset">Reset</button>
         <div class="player">
-            <input type="text" id="player2" placeholder="Player" value="${playerName2}">
+            <input type="text" id="player2" placeholder="Player" value="${arrInfoPlayer.playerInfo[1].playerName}">
             <div class="life">
                 <button id="p2m" class="minus">-</button>
-                <p>${life2}</p>
+                <p>${arrInfoPlayer.playerInfo[1].playerLife}</p>
                 <button id="p2p" class="plus">+</button>
             </div>
         </div>
@@ -54,10 +62,10 @@ function generateEventlistener() {
   let buttonP2Plus = document.querySelector("#p2p");
   let buttonReset = document.querySelector("#reset");
 
-  inputPlayer1 = document.querySelector("#player1");
-  inputPlayer1.addEventListener("input", changePlayerName);
-  inputPlayer2 = document.querySelector("#player2");
-  inputPlayer2.addEventListener("input", changePlayerName);
+  input[0] = document.querySelector("#player1");
+  input[0].addEventListener("input", changePlayerName);
+  input[1] = document.querySelector("#player2");
+  input[1].addEventListener("input", changePlayerName);
 
   buttonReset.addEventListener("click", Reset);
   buttonP1Minus.addEventListener("click", () => {
@@ -75,18 +83,19 @@ function generateEventlistener() {
 }
 
 function Reset() {
-  life1 = 20;
-  life2 = 20;
+  for (let i = 0; i < arrInfoPlayer.playerInfo.length; i++) {
+    arrInfoPlayer.playerInfo[i].playerLife = 20;
+  }
   generateHtml();
 }
 
 function minusLife(i) {
   if (i == 1) {
-    life1--;
+    arrInfoPlayer.playerInfo[0].playerLife--;
   }
 
   if (i == 2) {
-    life2--;
+    arrInfoPlayer.playerInfo[1].playerLife--;
   }
 
   generateHtml();
@@ -94,19 +103,19 @@ function minusLife(i) {
 
 function plusLife(i) {
   if (i == 1) {
-    life1++;
+    arrInfoPlayer.playerInfo[0].playerLife++;
   }
 
   if (i == 2) {
-    life2++;
+    arrInfoPlayer.playerInfo[1].playerLife++;
   }
 
   generateHtml();
 }
 
 function changePlayerName() {
-  playerName1 = inputPlayer1.value;
-  localStorage.setItem("playerName1", playerName1);
-  playerName2 = inputPlayer2.value;
-  localStorage.setItem("playerName2", playerName2);
+for (let i = 0; i < arrInfoPlayer.playerInfo.length; i++) {
+  arrInfoPlayer.playerInfo[i].playerName = input[i].value;
+  localStorage.setItem('playerName' + [i+1], input[i].value);
+};
 }
