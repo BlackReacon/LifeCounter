@@ -1,11 +1,21 @@
 let life1 = 20;
 let life2 = 20;
 let inputPlayer1;
-let playerName1 = "";
+let playerName1;
 let inputPlayer2;
-let playerName2 = "";
+let playerName2;
 
 window.addEventListener("load", function () {
+    if (this.localStorage.getItem("playerName1") == undefined) {
+        playerName1 = "";
+    }
+    else {playerName1 = this.localStorage.getItem("playerName1")};
+
+    if (this.localStorage.getItem("playerName2") == undefined) {
+        playerName2 = "";
+    }
+    else {playerName2 = this.localStorage.getItem("playerName2")};
+
   generateHtml();
 });
 
@@ -39,7 +49,7 @@ function generateEventlistener() {
   let buttonP2Minus = document.querySelector("#p2m");
   let buttonP2Plus = document.querySelector("#p2p");
   let buttonReset = document.querySelector("#reset");
-  
+
   inputPlayer1 = document.querySelector("#player1");
   inputPlayer1.addEventListener("input", changePlayerName);
   inputPlayer2 = document.querySelector("#player2");
@@ -92,5 +102,7 @@ function plusLife(i) {
 
 function changePlayerName() {
   playerName1 = inputPlayer1.value;
+  localStorage.setItem("playerName1", playerName1);
   playerName2 = inputPlayer2.value;
+  localStorage.setItem("playerName2", playerName2);
 }
