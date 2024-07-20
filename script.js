@@ -5,16 +5,20 @@ let playerName1;
 let inputPlayer2;
 let playerName2;
 
-window.addEventListener("load", function () {
-    if (this.localStorage.getItem("playerName1") == undefined) {
-        playerName1 = "";
-    }
-    else {playerName1 = this.localStorage.getItem("playerName1")};
+// let arrLifePlayer = [playerName, playerLife];
 
-    if (this.localStorage.getItem("playerName2") == undefined) {
-        playerName2 = "";
-    }
-    else {playerName2 = this.localStorage.getItem("playerName2")};
+window.addEventListener("load", function () {
+  if (this.localStorage.getItem("playerName1") == undefined) {
+    playerName1 = "";
+  } else {
+    playerName1 = this.localStorage.getItem("playerName1");
+  }
+
+  if (this.localStorage.getItem("playerName2") == undefined) {
+    playerName2 = "";
+  } else {
+    playerName2 = this.localStorage.getItem("playerName2");
+  }
 
   generateHtml();
 });
