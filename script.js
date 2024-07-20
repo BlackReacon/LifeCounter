@@ -1,5 +1,9 @@
 let life1 = 20;
 let life2 = 20;
+let inputPlayer1;
+let playerName1 = "";
+let inputPlayer2;
+let playerName2 = "";
 
 window.addEventListener("load", function () {
   generateHtml();
@@ -9,7 +13,7 @@ function generateHtml() {
   document.querySelector("body").innerHTML = ` 
     <h1>Multi Life Counter</h1>
         <div class="player reverse">
-            <h2>Player</h2>
+            <input type="text" id="player1" placeholder="Player" value="${playerName1}">
             <div class="life">
                 <button id="p1m" class="minus">-</button>
                 <p>${life1}</p>
@@ -18,7 +22,7 @@ function generateHtml() {
         </div>
         <button id="reset">Reset</button>
         <div class="player">
-            <h2>Player</h2>
+            <input type="text" id="player2" placeholder="Player" value="${playerName2}">
             <div class="life">
                 <button id="p2m" class="minus">-</button>
                 <p>${life2}</p>
@@ -35,6 +39,11 @@ function generateEventlistener() {
   let buttonP2Minus = document.querySelector("#p2m");
   let buttonP2Plus = document.querySelector("#p2p");
   let buttonReset = document.querySelector("#reset");
+  
+  inputPlayer1 = document.querySelector("#player1");
+  inputPlayer1.addEventListener("input", changePlayerName);
+  inputPlayer2 = document.querySelector("#player2");
+  inputPlayer2.addEventListener("input", changePlayerName);
 
   buttonReset.addEventListener("click", Reset);
   buttonP1Minus.addEventListener("click", () => {
@@ -79,4 +88,9 @@ function plusLife(i) {
   }
 
   generateHtml();
+}
+
+function changePlayerName() {
+  playerName1 = inputPlayer1.value;
+  playerName2 = inputPlayer2.value;
 }
