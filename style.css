@@ -1,0 +1,22 @@
+body{
+    display:flex;
+    background-color: cadetblue;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.life{
+    display: flex;
+}
+
+.reverse {
+    display: flex;
+    transform: rotate(180deg);
+}
