@@ -13,8 +13,6 @@ let arrInfoPlayer = {
   ],
 };
 
-
-
 window.addEventListener("load", function () {
   if (this.localStorage.getItem("playerName1") == undefined) {
     arrInfoPlayer.playerInfo[0].playerName = "";
@@ -32,8 +30,7 @@ window.addEventListener("load", function () {
 });
 
 function generateHtml() {
-  document.querySelector("body").innerHTML = ` 
-    <h1>Multi Life Counter</h1>
+  document.querySelector("#customContent").innerHTML = ` 
         <div class="player reverse">
             <input type="text" id="player1" placeholder="Player" value="${arrInfoPlayer.playerInfo[0].playerName}">
             <div class="life">
