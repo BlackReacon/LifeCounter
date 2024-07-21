@@ -61,6 +61,7 @@ body {
 
 body h1 {
   font-family: Cinzel;
+  font-weight: 1000;;
   transform: translate(-50%, 30%);
   margin: 0;
   padding: 0;
@@ -101,8 +102,14 @@ body h1 {
 
 #reset {
   font-family: Cinzel;
-  font-weight: 600;
+  font-weight: 900;
+  height: 50px;
+  width: 70px;
   border-radius: 10px;
+  background-color: rgba(0, 98, 255, 0.72);
+  border-color: rgba(0, 98, 255, 0.815);
+  box-shadow: 2px 1px 13px 4px rgba(0, 0, 0, 0.16);
+  margin-bottom: 50px;
 }
 
 .minus,
