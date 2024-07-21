@@ -34,18 +34,18 @@ function generateHtml() {
         <div class="player reverse">
             <input type="text" id="player1" placeholder="Player" value="${arrInfoPlayer.playerInfo[0].playerName}">
             <div class="life">
-                <button id="p1m" class="minus">-</button>
+                <button id="p1m" class="minus"></button>
                 <p>${arrInfoPlayer.playerInfo[0].playerLife}</p>
-                <button id="p1p" class="plus">+</button>
+                <button id="p1p" class="plus"></button>
             </div>
         </div>
         <button id="reset">Reset</button>
         <div class="player">
             <input type="text" id="player2" placeholder="Player" value="${arrInfoPlayer.playerInfo[1].playerName}">
             <div class="life">
-                <button id="p2m" class="minus">-</button>
+                <button id="p2m" class="minus"></button>
                 <p>${arrInfoPlayer.playerInfo[1].playerLife}</p>
-                <button id="p2p" class="plus">+</button>
+                <button id="p2p" class="plus"></button>
             </div>
         </div>
     `;
