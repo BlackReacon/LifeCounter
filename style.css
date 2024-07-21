@@ -103,13 +103,16 @@ body h1 {
 #reset {
   font-family: Cinzel;
   font-weight: 900;
-  height: 50px;
+  height: 25px;
   width: 70px;
+  transform: translate(-50%, 30%);
+  position: absolute;
+  left: 20%;
+  top: 52%;
   border-radius: 10px;
   background-color: rgba(0, 98, 255, 0.72);
   border-color: rgba(0, 98, 255, 0.815);
   box-shadow: 2px 1px 13px 4px rgba(0, 0, 0, 0.16);
-  margin-bottom: 50px;
 }
 
 .minus, .plus {
@@ -132,9 +135,11 @@ body h1 {
 }
 
 .player input {
-    background-color: rgba(0, 98, 255, 0.196);
-    border-color: rgba(0, 98, 255, 0);
+    background-color: rgba(0, 98, 255, 0.594);
+    border-color: rgb(0, 98, 255);
     box-shadow: 2px 1px 13px 4px rgba(0, 0, 0, 0.16); 
+    height: 50px;
+    border-radius: 10px;
     font-family: Cinzel;
     font-weight: 1000;
     text-align: center;

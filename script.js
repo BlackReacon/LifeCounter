@@ -39,7 +39,6 @@ function generateHtml() {
                 <button id="p1p" class="plus"></button>
             </div>
         </div>
-        <button id="reset">Reset</button>
         <div class="player">
             <input type="text" id="player2" placeholder="Player" value="${arrInfoPlayer.playerInfo[1].playerName}">
             <div class="life">
